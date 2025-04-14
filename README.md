@@ -4,61 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Simulador de Vida Financeira em C</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #0d1117;
-      color: #c9d1d9;
-      line-height: 1.6;
-      padding: 30px;
-      max-width: 900px;
-      margin: auto;
-    }
-    h1, h2, h3 {
-      color: #58a6ff;
-    }
-    a {
-      color: #8b949e;
-      text-decoration: none;
-    }
-    a:hover {
-      color: #58a6ff;
-    }
-    .badge {
-      display: inline-block;
-      background-color: #21262d;
-      color: #c9d1d9;
-      border-radius: 5px;
-      padding: 5px 10px;
-      margin: 5px 5px 5px 0;
-      font-size: 0.9em;
-    }
-    code {
-      background-color: #161b22;
-      padding: 2px 6px;
-      border-radius: 4px;
-      color: #79c0ff;
-    }
-    pre {
-      background-color: #161b22;
-      padding: 10px;
-      border-radius: 6px;
-      overflow-x: auto;
-    }
-    img.structure {
-      width: 100%;
-      border: 1px solid #30363d;
-      border-radius: 8px;
-      margin: 20px 0;
-    }
-    ul, ol {
-      margin-left: 20px;
-    }
-    hr {
-      border-color: #30363d;
-      margin: 40px 0;
-    }
-  </style>
 </head>
 <body>
 
