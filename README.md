@@ -43,9 +43,15 @@ O **Simulador de Vida Financeira em C** é um projeto **iniciante** criado com o
 
 ### 🛒 Sistema de Compras
 - Compre **imóveis** e **veículos**:
-  - Casas 🏠
-  - Moto 🏍️, Carro 🚗, Bicicleta 🚲
-- Três localidades com variação de preços e impostos (em breve!)
+  - 🏠 Imóveis
+    - Casa Normal (já inclusa desde o início do jogo)
+    - Apartamento (disponível para compra)
+    - Mansão (disponível para compra)
+  - 🚗 Veículos
+    - Bicicleta (já disponível desde o início do jogo)
+    - Moto 🏍️ (disponível para compra)
+    - Carro 🚗 (disponível para compra)
+- No futuro, cada tipo de imóvel e veículo afetará diferentes aspectos da vida do personagem, como o tempo de deslocamento. ⏳
 
 ---
 
