@@ -1,20 +1,22 @@
 # 💰 **Simulador de Vida Financeira em C**  
 
-[![Lingua C](https://img.shields.io/badge/linguagem-C-blue)](https://www.cprogramming.com/)
-[![Status: Em Desenvolvimento](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)](https://github.com/usuario/simulador-vida-financeira)
-[![Modo de Jogo: Console](https://img.shields.io/badge/console%20game-sim-black)](https://github.com/usuario/simulador-vida-financeira)
+[![Lingua C](https://img.shields.io/badge/linguagem-C-blue?style=flat-square&logo=c)](https://www.cprogramming.com/)
+[![Status: Em Desenvolvimento](https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=flat-square)](https://github.com/usuario/simulador-vida-financeira)
+[![Modo de Jogo: Console](https://img.shields.io/badge/console%20game-sim-black?style=flat-square)](https://github.com/usuario/simulador-vida-financeira)
 
 ---
 
-## 📌 **Sobre o Projeto**
+## 📌 **Sobre o Projeto**  
 
-Este é um projeto **iniciante** de **simulação de vida financeira**, desenvolvido em **linguagem C**, e jogado inteiramente via **console**. Foi criado com o objetivo de aprendizado e prática de **programação estrutural**, **manipulação de arquivos** e **organização modular em C**.
+Este é um **projeto iniciante** de **simulação de vida financeira**, desenvolvido em **linguagem C** 🖥️. O jogo é jogado inteiramente via **console** e foi criado com o objetivo de **aprendizado** e prática de **programação estruturada**, **manipulação de arquivos** e **organização modular em C**.
 
-O jogo simula a rotina de um personagem que precisa administrar **trabalho, estudos e finanças pessoais**, tomando decisões que afetam diretamente sua evolução profissional e financeira.
+Com este projeto, você simula a rotina de um personagem que precisa equilibrar **trabalho, estudos e finanças pessoais**, tomando decisões que afetam diretamente sua **evolução profissional e financeira**. 🚀
+
+> **Nota:** Este projeto é uma excelente oportunidade para quem está começando a aprender **C** e quer entender a interação entre o código e o console. 😎
 
 ---
 
-## 🔧 **Funcionalidades Principais**
+## 🔧 **Funcionalidades Principais**  
 
 ### 🏦 **Sistema Bancário**  
 - Criação de conta bancária com **nome, CPF e senha**.  
@@ -44,7 +46,7 @@ O jogo simula a rotina de um personagem que precisa administrar **trabalho, estu
 
 ## ⚠️ **Avisos Importantes**
 
-🚧 Este projeto **ainda está em desenvolvimento**, e por isso algumas funcionalidades estão incompletas ou ausentes:
+🚧 **Este projeto ainda está em desenvolvimento**, e por isso algumas funcionalidades estão incompletas ou ausentes:
 
 - ❌ **Progresso de saldo e bens não é salvo** (em breve será corrigido!).  
 - ❌ **Armário de itens ainda não implementado**.  
@@ -92,10 +94,10 @@ O jogo simula a rotina de um personagem que precisa administrar **trabalho, estu
 ## 💡 **Créditos**
 
 - Desenvolvido como parte dos estudos em **linguagem C** para reforçar conceitos como:
-  - Modularização  
-  - Manipulação de arquivos  
-  - Interação com usuário no console  
-  - Organização de dados
+  - **Modularização**  
+  - **Manipulação de arquivos**  
+  - **Interação com usuário no console**  
+  - **Organização de dados**
 
 ---
 
@@ -107,5 +109,6 @@ O jogo simula a rotina de um personagem que precisa administrar **trabalho, estu
    cd simulador-vida-financeira
    ./simulador
 
-📜 Licença
-Este projeto está sob a licença MIT, o que significa que você pode usá-lo, modificá-lo e distribuí-lo livremente. Aproveite para aprender e criar a sua versão!
+## 📜 Licença
+
+Este projeto está sob a licença MIT, o que significa que você pode usá-lo, modificá-lo e distribuí-lo livremente. Aproveite para aprender e criar a sua versão! 🚀
