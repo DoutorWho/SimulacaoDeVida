@@ -1,12 +1,15 @@
-# 💰 **Simulador de Vida Financeira em C**  
+# 💰 **Simulador de Vida Financeira em C**
 
-[![Lingua C](https://img.shields.io/badge/linguagem-C-blue?style=flat-square&logo=c)](https://www.cprogramming.com/)
-[![Status: Em Desenvolvimento](https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=flat-square)](https://github.com/usuario/simulador-vida-financeira)
-[![Modo de Jogo: Console](https://img.shields.io/badge/console%20game-sim-black?style=flat-square)](https://github.com/usuario/simulador-vida-financeira)
+<div align="center">
+  <!-- Badges com estilos bonitos e centralizados -->
+  <img src="https://img.shields.io/badge/linguagem-C-blue?style=for-the-badge&logo=c" alt="linguagem" />
+  <img src="https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=for-the-badge" alt="status" />
+  <img src="https://img.shields.io/badge/console%20game-sim-black?style=for-the-badge" alt="modo de jogo" />
+</div>
 
 ---
 
-## 📌 **Sobre o Projeto**  
+## 📌 **Sobre o Projeto**
 
 Este é um **projeto iniciante** de **simulação de vida financeira**, desenvolvido em **linguagem C** 🖥️. O jogo é jogado inteiramente via **console** e foi criado com o objetivo de **aprendizado** e prática de **programação estruturada**, **manipulação de arquivos** e **organização modular em C**.
 
@@ -16,19 +19,19 @@ Com este projeto, você simula a rotina de um personagem que precisa equilibrar 
 
 ---
 
-## 🔧 **Funcionalidades Principais**  
+## 🔧 **Funcionalidades Principais**
 
-### 🏦 **Sistema Bancário**  
+### 🏦 **Sistema Bancário**
 - Criação de conta bancária com **nome, CPF e senha**.  
 - Acesso à conta para visualização e movimentação de saldo.  
 - Sistema de **impostos** que deduz automaticamente valores sobre salários recebidos.
 
-### 💼 **Sistema de Trabalho**  
+### 💼 **Sistema de Trabalho**
 - O jogador **começa como operário** com um **Curso Técnico já concluído**.  
 - Os salários são **fixos por cargo**, sendo que cargos superiores darão acesso a melhores salários (futuramente desbloqueáveis com formações).  
 - Horários de trabalho precisam ser respeitados para garantir o pagamento.
 
-### 🎓 **Sistema de Estudos**  
+### 🎓 **Sistema de Estudos**
 - Atualmente disponível apenas o **Curso Técnico**, necessário para iniciar como operário.  
 - Futuramente estarão disponíveis:
   - Engenharia 🏗️  
@@ -36,7 +39,7 @@ Com este projeto, você simula a rotina de um personagem que precisa equilibrar 
   - Medicina 🏥  
 - Sistema de pagamento **à vista ou parcelado** para cursos.
 
-### 🛒 **Sistema de Compras**  
+### 🛒 **Sistema de Compras**
 - Compra de **veículos e casas**:
   - **Casa 🏠** (melhora condições de vida).
   - **Moto 🏍️**, **Carro 🚗**, **Bicicleta 🚲** (futuramente reduzirão tempo de deslocamento).
