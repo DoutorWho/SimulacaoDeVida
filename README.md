@@ -4,7 +4,7 @@
   <!-- Badges com estilos bonitos e centralizados -->
   <img src="https://img.shields.io/badge/linguagem-C-blue?style=for-the-badge&logo=c" alt="linguagem" />
   <img src="https://img.shields.io/badge/status-em%20desenvolvimento-yellow?style=for-the-badge" alt="status" />
-  <img src="https://img.shields.io/badge/console%20game-sim-black?style=for-the-badge" alt="modo de jogo" />
+  <img src="https://img.shields.io/badge/console%20game-black?style=for-the-badge" alt="modo de jogo" />
 </div>
 
 ---
