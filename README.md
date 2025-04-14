@@ -71,9 +71,7 @@ Com este projeto, você simula a rotina de um personagem que precisa equilibrar 
 
 ## 📝 **Estrutura do Projeto**
 
-> 📂 **Diretórios conforme imagem abaixo**:
-
-![Estrutura de Pastas](https://raw.githubusercontent.com/doutorwho/simulacaoDeVida/main/imagens/estrutura.png)
+> 📂 **Diretórios**:
 
 📁 **.vscode**  
 ├── launch.json  
