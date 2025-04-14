@@ -73,7 +73,7 @@ Com este projeto, você simula a rotina de um personagem que precisa equilibrar 
 
 > 📂 **Diretórios conforme imagem abaixo**:
 
-![Estrutura de Pastas](https://raw.githubusercontent.com/seu-usuario/seu-repositorio/main/imagens/estrutura.png)
+![Estrutura de Pastas](https://raw.githubusercontent.com/doutorwho/simulacaoDeVida/main/imagens/estrutura.png)
 
 📁 **.vscode**  
 ├── launch.json  
@@ -108,7 +108,7 @@ Com este projeto, você simula a rotina de um personagem que precisa equilibrar 
 
 1. **Clone o repositório**:
    ```bash
-   git clone https://github.com/seu-usuario/simulador-vida-financeira.git
+   git clone https://github.com/doutorwho/simulacaoDeVida.git
    cd simulador-vida-financeira
    ./simulador
 
