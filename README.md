@@ -1,100 +1,111 @@
-# 💰 Simulador de Vida Financeira em C
+# 💰 **Simulador de Vida Financeira em C**  
 
-<img src="https://img.shields.io/badge/linguagem-C-blue" alt="linguagem" />
-<img src="https://img.shields.io/badge/status-em%20desenvolvimento-yellow" alt="status" />
-<img src="https://img.shields.io/badge/console%20game-sim-black" alt="modo de jogo" />
+[![Lingua C](https://img.shields.io/badge/linguagem-C-blue)](https://www.cprogramming.com/)
+[![Status: Em Desenvolvimento](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)](https://github.com/usuario/simulador-vida-financeira)
+[![Modo de Jogo: Console](https://img.shields.io/badge/console%20game-sim-black)](https://github.com/usuario/simulador-vida-financeira)
 
-## 📌 Sobre o Projeto
+---
 
-Este é um projeto **iniciante** de **simulação de vida financeira**, desenvolvido em **linguagem C**, jogado inteiramente via **console**. Foi criado com o objetivo de aprendizado e prática de programação estrutural, manipulação de arquivos e organização modular em C.
+## 📌 **Sobre o Projeto**
+
+Este é um projeto **iniciante** de **simulação de vida financeira**, desenvolvido em **linguagem C**, e jogado inteiramente via **console**. Foi criado com o objetivo de aprendizado e prática de **programação estrutural**, **manipulação de arquivos** e **organização modular em C**.
 
 O jogo simula a rotina de um personagem que precisa administrar **trabalho, estudos e finanças pessoais**, tomando decisões que afetam diretamente sua evolução profissional e financeira.
 
 ---
 
-## 🔧 Funcionalidades Principais
+## 🔧 **Funcionalidades Principais**
 
-### 🏦 Sistema Bancário
-- Criação de conta bancária com **nome, CPF e senha**.
-- Acesso à conta para visualização e movimentação de saldo.
+### 🏦 **Sistema Bancário**  
+- Criação de conta bancária com **nome, CPF e senha**.  
+- Acesso à conta para visualização e movimentação de saldo.  
 - Sistema de **impostos** que deduz automaticamente valores sobre salários recebidos.
 
-### 💼 Sistema de Trabalho
-- O jogador **começa como operário** com um **Curso Técnico já concluído**.
-- Os salários são **fixos por cargo**, sendo que cargos superiores darão acesso a melhores salários (futuramente desbloqueáveis com formações).
+### 💼 **Sistema de Trabalho**  
+- O jogador **começa como operário** com um **Curso Técnico já concluído**.  
+- Os salários são **fixos por cargo**, sendo que cargos superiores darão acesso a melhores salários (futuramente desbloqueáveis com formações).  
 - Horários de trabalho precisam ser respeitados para garantir o pagamento.
 
-### 🎓 Sistema de Estudos
-- Atualmente disponível apenas o **Curso Técnico**, necessário para iniciar como operário.
+### 🎓 **Sistema de Estudos**  
+- Atualmente disponível apenas o **Curso Técnico**, necessário para iniciar como operário.  
 - Futuramente estarão disponíveis:
-  - Engenharia 🏗️
-  - Administração 📊
-  - Medicina 🏥
+  - Engenharia 🏗️  
+  - Administração 📊  
+  - Medicina 🏥  
 - Sistema de pagamento **à vista ou parcelado** para cursos.
 
-### 🛒 Sistema de Compras
+### 🛒 **Sistema de Compras**  
 - Compra de **veículos e casas**:
-  - **Casa 🏠** (melhora condições de vida)
-  - **Moto 🏍️**, **Carro 🚗**, **Bicicleta 🚲** (futuramente reduzirão tempo de deslocamento)
+  - **Casa 🏠** (melhora condições de vida).
+  - **Moto 🏍️**, **Carro 🚗**, **Bicicleta 🚲** (futuramente reduzirão tempo de deslocamento).
 - Loja possui **três localidades** com variações em **preço, frete e impostos**.
 
 ---
 
-## ⚠️ Avisos Importantes
+## ⚠️ **Avisos Importantes**
 
 🚧 Este projeto **ainda está em desenvolvimento**, e por isso algumas funcionalidades estão incompletas ou ausentes:
 
-- ❌ **Progresso de saldo e bens não é salvo** (em breve será corrigido!).
-- ❌ **Armário de itens ainda não implementado**.
-- ❌ **Sistema de transporte não afeta o tempo de chegada** no trabalho (mas será adicionado!).
+- ❌ **Progresso de saldo e bens não é salvo** (em breve será corrigido!).  
+- ❌ **Armário de itens ainda não implementado**.  
+- ❌ **Sistema de transporte não afeta o tempo de chegada** no trabalho (mas será adicionado!).  
 - ❌ **Personagem começa como operário e não é possível trocar de cargo ainda**.
 
 ---
 
-## 🔄 Atualizações Futuras
+## 🔄 **Atualizações Futuras**
 
-- ✅ Sistema de **salvamento automático** de progresso.
-- ✅ Inclusão de novos cargos e desbloqueio via formações.
-- ✅ Sistema de **veículos influenciando o tempo de chegada ao trabalho**.
-- ✅ Interface no console mais intuitiva.
-- ✅ Sistema de **crédito e parcelamento mais avançado**.
+- ✅ Sistema de **salvamento automático** de progresso.  
+- ✅ Inclusão de novos cargos e desbloqueio via formações.  
+- ✅ Sistema de **veículos influenciando o tempo de chegada ao trabalho**.  
+- ✅ Interface no console mais intuitiva.  
+- ✅ Sistema de **crédito e parcelamento mais avançado**.  
 - ✅ Melhorias visuais no console (barras, animações simples, feedbacks).
 
 ---
 
-## 📝 Estrutura do Projeto
+## 📝 **Estrutura do Projeto**
 
-> 📂 Diretórios conforme imagem abaixo:
+> 📂 **Diretórios conforme imagem abaixo**:
 
-![estrutura de pastas](https://raw.githubusercontent.com/seu-usuario/seu-repositorio/main/imagens/estrutura.png)
+![Estrutura de Pastas](https://raw.githubusercontent.com/seu-usuario/seu-repositorio/main/imagens/estrutura.png)
 
-📁 .vscode ├── launch.json ├── settings.json └── tasks.json
+📁 **.vscode**  
+├── launch.json  
+├── settings.json  
+└── tasks.json  
 
-📁 database ├── banco.txt ├── bens.txt └── cadastro.txt
+📁 **database**  
+├── banco.txt  
+├── bens.txt  
+└── cadastro.txt  
 
-📁 funcoes ├── geral.c / geral.h ├── pessoas.c / pessoas.h ├── tarefas.c / tarefas.h
+📁 **funcoes**  
+├── geral.c / geral.h  
+├── pessoas.c / pessoas.h  
+├── tarefas.c / tarefas.h  
 
-📄 main.c
-
+📄 **main.c**
 
 ---
-💡 Créditos
 
-- Desenvolvido como parte dos estudos em linguagem C para reforçar conceitos como:
-- Modularização
-- Manipulação de arquivos
-- Interação com usuário no console
-- Organização de dados
+## 💡 **Créditos**
 
+- Desenvolvido como parte dos estudos em **linguagem C** para reforçar conceitos como:
+  - Modularização  
+  - Manipulação de arquivos  
+  - Interação com usuário no console  
+  - Organização de dados
 
+---
 
-## 🚀 Como Rodar o Projeto
+## 🚀 **Como Rodar o Projeto**
 
 1. **Clone o repositório**:
    ```bash
    git clone https://github.com/seu-usuario/simulador-vida-financeira.git
    cd simulador-vida-financeira
-./simulador
+   ./simulador
 
 📜 Licença
 Este projeto está sob a licença MIT, o que significa que você pode usá-lo, modificá-lo e distribuí-lo livremente. Aproveite para aprender e criar a sua versão!
