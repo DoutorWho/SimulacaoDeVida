@@ -10,7 +10,7 @@
 
 int cadastro(char nome_enviar[], char cpf_enviar[], char senha_enviar[]) {
     puts("\033[36m---------------------------------------------------\033[m");
-    printf("                Bem-vindo ao cadastramento de usuário!\n");
+    printf("\033[32m     Bem-vindo ao cadastramento de usuário!\033[m\n");
     puts("\033[36m---------------------------------------------------\033[m");
     
     // digitação de nome
@@ -46,7 +46,7 @@ int cadastro(char nome_enviar[], char cpf_enviar[], char senha_enviar[]) {
     while (1) {
 
         printf("Digite seu CPF (Somente números): ");
-        scanf("%s", &cpf);
+        scanf("%s", cpf);
         if (!saoNumericos(cpf)) {
             printf("\033[31mERRO\033[m - Digite somente números em seu CPF!\n");
             continue;
@@ -113,7 +113,7 @@ int cadastro(char nome_enviar[], char cpf_enviar[], char senha_enviar[]) {
 
 int login(char nome_enviar[], char cpf_enviar[], char senha_enviar[]) {
     puts("\033[36m---------------------------------------------------\033[m");
-    printf("                Bem-vindo ao login de usuário!\n");
+    printf("\033[32m          Bem-vindo ao login de usuário!\033[m\n");
     puts("\033[36m---------------------------------------------------\033[m");
     char cpf[18];
     char senha[10];
