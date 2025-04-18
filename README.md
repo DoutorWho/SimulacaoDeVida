@@ -3,7 +3,7 @@
 <div align="center">
   <img src="https://img.shields.io/badge/Linguagem-C-blue?style=for-the-badge&logo=c" alt="linguagem" />
   <img src="https://img.shields.io/badge/Status-Em%20Desenvolvimento-yellow?style=for-the-badge" alt="status" />
-  <img src="https://img.shields.io/badge/Versão-Alpha%201.0-orange?style=for-the-badge" alt="versão" />
+  <img src="https://img.shields.io/badge/Versão-Alpha%200.8-orange?style=for-the-badge" alt="versão" />
   <img src="https://img.shields.io/badge/Console%20Game-black?style=for-the-badge" alt="modo de jogo" />
 </div>
 
