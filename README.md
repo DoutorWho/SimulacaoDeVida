@@ -69,7 +69,7 @@ O **Simulador de Vida Financeira em C** é um projeto **iniciante** criado com o
 
 ✨ O que foi adicionado:
 
-- 💾 Sistema de **salvamento* adicionamento, agora é possível salvar seu progresso. 
+- 💾 Sistema de **salvamento** adicionamento, agora é possível salvar seu progresso. 
 
 ---
 
