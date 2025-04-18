@@ -56,7 +56,9 @@ int menu_perfil() {
 int menu_estudo_trabalho() {
     int escolha;
     while (1) {
-        inicial("Simulação de Vida - Jogo", verde);
+        puts("\033[36m-------------------------------------\033[m");
+        printf("\033[32m      Simulação de Vida - Jogo!\033[m\n");
+        puts("\033[36m-------------------------------------\033[m");
         puts("[1] - Trabalhar (Para ganhar dinheiro)");
         puts("[2] - Estudar (Aprende algum conteúdo!)");
         puts("[3] - Comprar (Compre um carro, casa, veículos)");
