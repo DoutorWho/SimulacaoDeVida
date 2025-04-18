@@ -57,11 +57,6 @@ int main(int argc, char const *argv[]) {
         switch (menu_perfil()) {
             case 1:
                 cadastro(nome, cpf, senha);
-
-                printf("O nome é: %s\n", nome);
-                printf("O valor de cpf é: %s\n", cpf);
-                printf("A senha é: %s\n", senha);
-
                 criar_banco(cpf, &numero_conta, &saldo);
                 break;
             case 2:
@@ -105,7 +100,7 @@ int main(int argc, char const *argv[]) {
                 ver_banco(jogador.banco.saldo, bens);
             }
             else {
-                salvar_dados(jogador.banco.numero_conta, bens, &jogador.banco.saldo, jogador.cpf);
+                salvar_dados_banco(jogador.banco.numero_conta, bens, &jogador.banco.saldo, jogador.cpf);
                 salvar_dados_bens(bens, jogador.cpf);
                 printf("Dados salvos com sucesso! Indo para a página principal!\n");
                 break;
