@@ -105,7 +105,8 @@ int main(int argc, char const *argv[]) {
                 ver_banco(jogador.banco.saldo, bens);
             }
             else {
-                salvar_dados(bens, &jogador.banco.saldo, jogador.cpf);
+                salvar_dados(jogador.banco.numero_conta, bens, &jogador.banco.saldo, jogador.cpf);
+                salvar_dados_bens(bens, jogador.cpf);
                 printf("Dados salvos com sucesso! Indo para a página principal!\n");
                 break;
             }
