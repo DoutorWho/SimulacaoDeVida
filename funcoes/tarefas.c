@@ -4,21 +4,13 @@
 #include <time.h>
 #include "tarefas.h"
 
-void adicionar_dinheiro() {
-
-}
-
-void status() { // vê o status do usuário
-
-}
-
 
 // funções básicas
 void trabalhar(char bens[], float *dinheiro) {
     // colocando os métodos de trabalho
-    puts("-----------------------------");
-    printf("Bem-vindo ao trabalho!\n");
-    puts("-----------------------------");
+    puts("\033[36m-------------------------------\033[m");
+    printf("\033[32m     Bem-vindo ao trabalho!\033[m\n");
+    puts("\033[36m-------------------------------\033[m");
     int escolha;
     while (1) {
         puts("[1] - Operário");
@@ -71,9 +63,9 @@ void trabalhar(char bens[], float *dinheiro) {
 
 void estudar(char bens[], float *dinheiro) {
     // fazer uma verificação lá, pq se ele tiver todos os tipos de curso, não precisa vim aqui!
-    puts("-----------------------------");
-    printf("Bem-vindo a faculdade!\n");
-    puts("-----------------------------");
+    puts("\033[36m-------------------------------\033[m");
+    printf("\033[32m     Bem-vindo a faculdade!\033[m\n");
+    puts("\033[36m-------------------------------\033[m");
     int escolha;
     // Aqui ele retorna o índice da opção, que após tudo isso, é salvo, assim como o dinheiro!!
     while (1) {
@@ -121,9 +113,9 @@ void estudar(char bens[], float *dinheiro) {
 }
 
 void comprar(char bens[], float *dinheiro) {
-    puts("-----------------------------");
-    printf("Bem-vindo a Shop!\n");
-    puts("-----------------------------");
+    puts("\033[36m-------------------------------\033[m");
+    printf("\033[32m     Bem-vindo ao Shopping!\033[m\n");
+    puts("\033[36m-------------------------------\033[m");
     int escolha;
     while (1) {
         puts("[1] - Automoveis");
@@ -191,9 +183,9 @@ void comprar(char bens[], float *dinheiro) {
 
 
 void ver_banco(float saldo, char bens[]) { // transferir ou vê status de pagamento
-    puts("-----------------------------");
-    printf("Bem-vindo ao banco!\n");
-    puts("-----------------------------");
+    puts("\033[36m-------------------------------\033[m");
+    printf("\033[32m     Bem-vindo ao Banco Center!\033[m\n");
+    puts("\033[36m-------------------------------\033[m");
     printf("Seu saldo é de: R$%.2f\n", saldo);
     char total[10][30] = {"Curso Técnico", "Engenharia", "Administração", "Medicina", "Bicicleta", "Moto", "Carro", "Casa normal", "Apartamento", "Mansão"};
     printf("Seus bens e cursos são: \n");
@@ -218,7 +210,7 @@ void removeQuebrasDeLinha(char *str) {
 }
 
 
-int salvar_dados(int numero_conta, char bens[], float *dinheiro, char cpf[]) {
+int salvar_dados_banco(int numero_conta, char bens[], float *dinheiro, char cpf[]) {
     // parte dos banco
 
     // aqui eu vou mudar, eu vou saber o inicio e o termino da linha e apagar, e depois criar outra com as novas informações!
@@ -244,12 +236,11 @@ int salvar_dados(int numero_conta, char bens[], float *dinheiro, char cpf[]) {
     fclose(fp);
     // sabendo disso, eu posso pecorrer isso até o '\n'
     int ultima_virgula = 0, ultimo_ponto = 0, tamanho;
-    int flag = 1;
     char comparar[18];
     int c ;
     int inicio_usuario = 0;
     int tamanho_total = strlen(byte_copiado);
-    while (flag) {
+    while (1) {
         for (c = ultimo_ponto; byte_copiado[c] != '\n' && byte_copiado[c] != '\0'; c++) { 
             // Encontrar a vírgula que separa o valor
             if (byte_copiado[c] == ',') {
@@ -262,25 +253,36 @@ int salvar_dados(int numero_conta, char bens[], float *dinheiro, char cpf[]) {
         tamanho = ultimo_ponto - (ultima_virgula + 2);
         strncpy(comparar, &byte_copiado[ultima_virgula + 1], tamanho);
         comparar[tamanho - 1] = '\0';
+
     
         if ((strcmp(comparar, cpf) == 0)) {
             char novos_dados_antes[1024];
             char novos_dados_depois[1024];
             char novos_dados_atualizados[2048];
+            int tamanho_string;
             // primeiro vamos fazer para se caso o cpf dele não esteja na 1 linha
             // o antes
             if (inicio_usuario != 0) {
                 // o antes
                 memmove(&novos_dados_antes, &byte_copiado[0], inicio_usuario + 1);
+                tamanho_string = inicio_usuario + 1;
+                novos_dados_antes[tamanho_string] = '\0'; // isso é para evitar qualquer erro!
                 // o depois
                 memmove(&novos_dados_depois, &byte_copiado[ultimo_ponto], strlen(&byte_copiado[ultimo_ponto]) + 1);
+                tamanho_string = strlen(&byte_copiado[ultimo_ponto]) + 1;
+                novos_dados_depois[tamanho_string] = '\0'; // isso é para evitar qualquer erro!
                 // atualização
                 snprintf(novos_dados_atualizados, sizeof(novos_dados_atualizados), "%s%d,%.2f,%s\n%s", novos_dados_antes, numero_conta,*dinheiro,cpf,novos_dados_depois);
             }
             else {
+                // o depois
                 memmove(&novos_dados_depois, &byte_copiado[ultimo_ponto], strlen(&byte_copiado[ultimo_ponto]) + 1);
+                tamanho_string = strlen(&byte_copiado[ultimo_ponto]) + 1;
+                novos_dados_depois[tamanho_string] = '\0'; // isso é para evitar qualquer erro!
+                // a atualização
                 snprintf(novos_dados_atualizados, sizeof(novos_dados_atualizados), "%d,%.2f,%s\n%s", numero_conta,*dinheiro,cpf,novos_dados_depois);
             }
+
             removeQuebrasDeLinha(novos_dados_atualizados); // para tirar os caracteres de "\r" que tava dando erro!
 
             // colocando os dados para novamente
@@ -299,7 +301,8 @@ int salvar_dados(int numero_conta, char bens[], float *dinheiro, char cpf[]) {
             inicio_usuario = c; // para saber o inicio 
         }
 
-    }    
+    }   
+    free(byte_copiado); 
     return 0;
 }
 
@@ -351,24 +354,35 @@ int salvar_dados_bens(char bens[], char cpf[]) {
             char novos_dados_antes[1024];
             char novos_dados_depois[1024];
             char novos_dados_atualizados[2048];
+            int tamanho_string;
             // primeiro vamos fazer para se caso o cpf dele não esteja na 1 linha
-            //sprintf(bens, "%s", "18401320185");
+            //sprintf(bens, "%s", "1840132018");
             if (inicio_usuario != 0) {
                 // o antes
-                printf("O último espaço é: %d\n", ultimo_espaco);
                 memmove(&novos_dados_antes, &byte_bens[0],  inicio_usuario + 1);
+                tamanho_string = (inicio_usuario + 1);
+                novos_dados_antes[tamanho_string] = '\0';
+                // o depois
                 memmove(&novos_dados_depois, &byte_bens[ultimo_espaco], strlen(byte_bens) - ultimo_espaco);
+                tamanho_string =  strlen(byte_bens) - ultimo_espaco;
+                novos_dados_depois[tamanho_string] = '\0';
+                // atualização
                 snprintf(novos_dados_atualizados, sizeof(novos_dados_atualizados), "%s%s,%s\n%s", novos_dados_antes, cpf, bens, novos_dados_depois);
             }
             else {
-                memmove(&novos_dados_depois, &byte_bens[ultimo_espaco], strlen(byte_bens) - ultimo_espaco);
-                snprintf(novos_dados_atualizados, sizeof(novos_dados_atualizados), "%s,%s\n%s", cpf, bens,novos_dados_depois);
+                // o depois
+                memmove(&novos_dados_depois, &byte_bens[ultimo_espaco],  strlen(byte_bens) - ultimo_espaco);
+                novos_dados_depois[strlen(byte_bens) - ultimo_espaco] = '\0'; // pra evitar o bug de lixo de memória
+
+                // a atualização
+                snprintf(novos_dados_atualizados, sizeof(novos_dados_atualizados), "%s,%s\n%s", cpf, bens, novos_dados_depois);
             }
             //removeQuebrasDeLinha(novos_dados_atualizados); // para tirar os caracteres de "\r" que tava dando erro!
-            //printf("Novos dados: %s", novos_dados_atualizados);
-            // colocando os dados para novamente
+            //printf("Novos dados: %s", novos_dados_depois);
+
             // colocando os dados para novamente
             removeQuebrasDeLinha(novos_dados_atualizados); // para tirar os caracteres de "\r" que tava dando erro!
+     
             FILE *adicionar_novosdados = fopen("database/bens.txt", "w");
             if (!adicionar_novosdados) {
                 printf("Houve algum erro!\n");
@@ -384,5 +398,6 @@ int salvar_dados_bens(char bens[], char cpf[]) {
         }
       
     }
+    free(byte_bens);
     return 0;
 }
