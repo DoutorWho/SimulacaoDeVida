@@ -59,23 +59,17 @@ O **Simulador de Vida Financeira em C** é um projeto **iniciante** criado com o
 
 🔧 O projeto está em **desenvolvimento ativo**, e algumas funções ainda estão sendo implementadas:
 
-- ❌ Progresso e bens **não são salvos**
 - ❌ **Armário de itens** ainda não disponível
 - ❌ Sistema de transporte **não afeta tempo de chegada**
 - ❌ Apenas o cargo de **operário** está disponível atualmente
 
 ---
 
-## 🔄 Atualizações Futuras
+## 🔄 Atualizações
 
-✨ O que está por vir:
+✨ O que foi adicionado:
 
-- 💾 Sistema de **salvamento automático**
-- 🎯 Novos cargos e desbloqueio com **formações superiores**
-- 🕒 Veículos influenciarão o **tempo de deslocamento**
-- 📊 Interface no console mais amigável
-- 💳 Sistema de **crédito e parcelamento**
-- 🎨 Animações simples e **melhor feedback visual**
+- 💾 Sistema de **salvamento* adicionamento, agora é possível salvar seu progresso. 
 
 ---
 
