@@ -204,8 +204,185 @@ void ver_banco(float saldo, char bens[]) { // transferir ou vê status de pagame
     }
 }
 
+// parte de salvar dados
 
-int salvar_dados(char bens[], float *dinheiro, char cpf[]) {
-    // parte do banco
+
+void removeQuebrasDeLinha(char *str) {
+    int i, j = 0;
+    for (i = 0; str[i] != '\0'; i++) {
+        if (str[i] != '\r') {
+            str[j++] = str[i];
+        }
+    }
+    str[j] = '\0';
+}
+
+
+int salvar_dados(int numero_conta, char bens[], float *dinheiro, char cpf[]) {
+    // parte dos banco
+
+    // aqui eu vou mudar, eu vou saber o inicio e o termino da linha e apagar, e depois criar outra com as novas informações!
+    FILE *fp = fopen("database/banco.txt", "rb");
+    if (!fp) {
+        printf("Erro ao abrir o arquivo!\n");
+        return 1;
+    }
+
+    fseek(fp, 0, SEEK_END); // Move o ponteiro até o final do arquivo.
+    long file_size = ftell(fp); //  Retorna o número de bytes do arquivo.
+    rewind(fp); // Volta o ponteiro para o início, porque agora a gente já sabe o tamanho e vai começar a leitura.
+
+    char *byte_copiado = (char *)malloc(file_size + 1);
+    if (!byte_copiado) {
+        printf("Erro ao alocar memória!\n");
+        fclose(fp);
+        return 1;
+    }
+
+    fread(byte_copiado, 1, file_size, fp);
+    byte_copiado[file_size] = '\0';  // Finaliza string
+    fclose(fp);
+    // sabendo disso, eu posso pecorrer isso até o '\n'
+    int ultima_virgula = 0, ultimo_ponto = 0, tamanho;
+    int flag = 1;
+    char comparar[18];
+    int c ;
+    int inicio_usuario = 0;
+    int tamanho_total = strlen(byte_copiado);
+    while (flag) {
+        for (c = ultimo_ponto; byte_copiado[c] != '\n' && byte_copiado[c] != '\0'; c++) { 
+            // Encontrar a vírgula que separa o valor
+            if (byte_copiado[c] == ',') {
+                ultima_virgula = c;
+            }
+        } 
+        ultimo_ponto = c + 1; // Ajusta para sair da linha com '\n'; 
+    
+        // Aqui eu verifico se o CPF é dele
+        tamanho = ultimo_ponto - (ultima_virgula + 2);
+        strncpy(comparar, &byte_copiado[ultima_virgula + 1], tamanho);
+        comparar[tamanho - 1] = '\0';
+    
+        if ((strcmp(comparar, cpf) == 0)) {
+            char novos_dados_antes[1024];
+            char novos_dados_depois[1024];
+            char novos_dados_atualizados[2048];
+            // primeiro vamos fazer para se caso o cpf dele não esteja na 1 linha
+            // o antes
+            if (inicio_usuario != 0) {
+                // o antes
+                memmove(&novos_dados_antes, &byte_copiado[0], inicio_usuario + 1);
+                // o depois
+                memmove(&novos_dados_depois, &byte_copiado[ultimo_ponto], strlen(&byte_copiado[ultimo_ponto]) + 1);
+                // atualização
+                snprintf(novos_dados_atualizados, sizeof(novos_dados_atualizados), "%s%d,%.2f,%s\n%s", novos_dados_antes, numero_conta,*dinheiro,cpf,novos_dados_depois);
+            }
+            else {
+                memmove(&novos_dados_depois, &byte_copiado[ultimo_ponto], strlen(&byte_copiado[ultimo_ponto]) + 1);
+                snprintf(novos_dados_atualizados, sizeof(novos_dados_atualizados), "%d,%.2f,%s\n%s", numero_conta,*dinheiro,cpf,novos_dados_depois);
+            }
+            removeQuebrasDeLinha(novos_dados_atualizados); // para tirar os caracteres de "\r" que tava dando erro!
+
+            // colocando os dados para novamente
+            FILE *adicionar_novosdados = fopen("database/banco.txt", "w");
+            if (!adicionar_novosdados) {
+                printf("Houve algum erro!\n");
+                return 1;
+            }
+
+            fprintf(adicionar_novosdados, "%s", novos_dados_atualizados); // 0 é o saldo
+            fclose(adicionar_novosdados);
+            break; // encerrando esse while
+            // colocando os dados para novamente
+        }
+        else {
+            inicio_usuario = c; // para saber o inicio 
+        }
+
+    }    
+    return 0;
+}
+
+int salvar_dados_bens(char bens[], char cpf[]) {
+    // parte dos bens
+    FILE *file = fopen("database/bens.txt", "rb");
+    if (!file) {
+        printf("Erro ao abrir o arquivo!\n");
+        return 1;
+    }
+
+    fseek(file, 0, SEEK_END); // Move o ponteiro até o final do arquivo.
+    long size_bens = ftell(file); //  Retorna o número de bytes do arquivo.
+    rewind(file); // Volta o ponteiro para o início, porque agora a gente já sabe o tamanho e vai começar a leitura.
+
+    char *byte_bens = (char *)malloc(size_bens + 1);
+    if (!byte_bens) {
+        printf("Erro ao alocar memória!\n");
+        fclose(file);
+        return 1;
+    }
+
+    fread(byte_bens, 1, size_bens, file);
+    byte_bens[size_bens] = '\0';  // Finaliza string
+    fclose(file);
+
+    // sabendo disso, eu posso pecorrer isso até o '\n'
+    int ultimo_espaco = 0, inicio_copia = 0;
+    int c ;
+    int inicio_usuario = 0;
+    int tamanho_total;
+    char comparar[80];
+    while (1) {
+        // for para achar o ','
+        for (c = ultimo_espaco; byte_bens[c] != '\0'; c++) { 
+            // Encontrar a vírgula que separa o valor
+            if (byte_bens[c] == '\n') {
+                ultimo_espaco = c + 1;
+                break; // isso significa que ele achou
+            }
+        } 
+        tamanho_total = (ultimo_espaco - inicio_copia - 13);
+        strncpy(comparar, &byte_bens[inicio_copia], tamanho_total);
+        comparar[tamanho_total] = '\0';
+        inicio_copia = ultimo_espaco;
+        // veririfar se os cpf são iguais!
+        if ((strcmp(comparar, cpf) == 0)) {
+            // vou ter que fazer o antes e o depois para copiar corretamente! No caso descubro o antes, o depois e copio.
+            char novos_dados_antes[1024];
+            char novos_dados_depois[1024];
+            char novos_dados_atualizados[2048];
+            // primeiro vamos fazer para se caso o cpf dele não esteja na 1 linha
+            //sprintf(bens, "%s", "18401320185");
+            if (inicio_usuario != 0) {
+                // o antes
+                printf("O último espaço é: %d\n", ultimo_espaco);
+                memmove(&novos_dados_antes, &byte_bens[0],  inicio_usuario + 1);
+                memmove(&novos_dados_depois, &byte_bens[ultimo_espaco], strlen(byte_bens) - ultimo_espaco);
+                snprintf(novos_dados_atualizados, sizeof(novos_dados_atualizados), "%s%s,%s\n%s", novos_dados_antes, cpf, bens, novos_dados_depois);
+            }
+            else {
+                memmove(&novos_dados_depois, &byte_bens[ultimo_espaco], strlen(byte_bens) - ultimo_espaco);
+                snprintf(novos_dados_atualizados, sizeof(novos_dados_atualizados), "%s,%s\n%s", cpf, bens,novos_dados_depois);
+            }
+            //removeQuebrasDeLinha(novos_dados_atualizados); // para tirar os caracteres de "\r" que tava dando erro!
+            //printf("Novos dados: %s", novos_dados_atualizados);
+            // colocando os dados para novamente
+            // colocando os dados para novamente
+            removeQuebrasDeLinha(novos_dados_atualizados); // para tirar os caracteres de "\r" que tava dando erro!
+            FILE *adicionar_novosdados = fopen("database/bens.txt", "w");
+            if (!adicionar_novosdados) {
+                printf("Houve algum erro!\n");
+                return 1;
+            }
+
+            fprintf(adicionar_novosdados, "%s", novos_dados_atualizados); // 0 é o saldo
+            fclose(adicionar_novosdados);
+            break;
+        }
+        else {
+            inicio_usuario = c;
+        }
+      
+    }
     return 0;
 }
